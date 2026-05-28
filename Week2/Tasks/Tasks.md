@@ -25,3 +25,13 @@ Create two pull requests following the repository guidelines and **Conventional 
 - You can view the PR [here](https://github.com/sourcesimian/uICAL/pull/33)
 
 **Status Note:** Currently awaiting review from the repository maintainer.
+
+### Task 2: Write Review Comments Using Conventional Comments
+
+Review comments on PR [#489 — "Added readme"](https://github.com/kautukkundan/Awesome-Profile-README-templates/pull/489) in `kautukkundan/Awesome-Profile-README-templates`:
+
+- **Comment 1 — `issue (non-blocking):`** Flagged that all three PR checklist boxes were left unchecked despite the file satisfying at least one condition, making maintainer triage harder.
+	- [Link](https://github.com/kautukkundan/Awesome-Profile-README-templates/pull/489#issuecomment-4567582236)
+- **Comment 2 — `issue:`** Flagged a missing required attribution line (`⭐️ From [username](...)`) that the repo's contribution guidelines mandate at the bottom of every submitted file — a blocking requirement for merge.
+	- [Link](https://github.com/kautukkundan/Awesome-Profile-README-templates/pull/489#issuecomment-4567587337)
+- **Compliance:** Both comments follow the Conventional Comments specification, using the correct labels (`issue` vs `issue (non-blocking)`) to signal severity clearly and avoid ambiguity about whether the author must act.
