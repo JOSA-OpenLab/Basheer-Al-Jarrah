@@ -1,0 +1,1 @@
+Link : https://github.com/BurntSushi/ripgrep/issues/3428#issuecomment-4600901445
