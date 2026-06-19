@@ -14,7 +14,7 @@ Create two pull requests following the repository guidelines and **Conventional 
 - You can view the PR [here](https://github.com/tldr-pages/tldr/pull/22579)
         
 
-> **Status Note:** Currently awaiting review. I am hoping to receive feedback from the repository maintainers soon regarding whether it will be merged.
+> **Status Update:** The pull request has been merged
 
 ### Pull Request: Contribution to `sourcesimian/uICAL`
 
@@ -24,7 +24,7 @@ Create two pull requests following the repository guidelines and **Conventional 
     - Kept the PR minimal and focused — one commit, one file, no functional changes.
 - You can view the PR [here](https://github.com/sourcesimian/uICAL/pull/33)
 
-**Status Note:** Currently awaiting review from the repository maintainer.
+> **Status Update:** The pull request has been merged
 
 ### Task 2: Write Review Comments Using Conventional Comments
 
@@ -35,3 +35,4 @@ Review comments on PR [#489 — "Added readme"](https://github.com/kautukkundan/
 - **Comment 2 — `issue:`** Flagged a missing required attribution line (`⭐️ From [username](...)`) that the repo's contribution guidelines mandate at the bottom of every submitted file — a blocking requirement for merge.
 	- [Link](https://github.com/kautukkundan/Awesome-Profile-README-templates/pull/489#issuecomment-4567587337)
 - **Compliance:** Both comments follow the Conventional Comments specification, using the correct labels (`issue` vs `issue (non-blocking)`) to signal severity clearly and avoid ambiguity about whether the author must act.
+> **Status Update:** The PR author fixed the issues I mentioned in my comments.
