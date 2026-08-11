@@ -16,18 +16,18 @@ dexpace is a small, Jordan-based developer-platform organization. Its profile st
 
 **Observed — the ten public repositories, all MIT-licensed:**
 
-| Repo | Language | What it is | Open issues / PRs |
-|---|---|---|---|
-| [morphic](https://github.com/dexpace/morphic) | Go | A compiler that generates idiomatic SDKs and docs from any API spec — OpenAPI, Smithy, TypeSpec, GraphQL. One IR, many targets. | 65 / 40 |
-| [python-sdk](https://github.com/dexpace/python-sdk) | Python | Typed, transport-agnostic toolkit for Python HTTP client libraries — immutable request/response models, staged policy pipelines, auth, observability | 58 (15 help-wanted) / 8 |
-| [java-sdk](https://github.com/dexpace/java-sdk) | Kotlin | Core components and tools for building and maintaining Java SDK libraries | 41 / 13 |
-| [nodejs-sdk](https://github.com/dexpace/nodejs-sdk) | JavaScript | NodeJS SDK platform | 24 / 1 |
-| [dotnet-sdk](https://github.com/dexpace/dotnet-sdk) | C# | .NET SDK toolkit | 4 / 0 |
-| [go-sdk](https://github.com/dexpace/go-sdk) | Go | Go SDK toolkit | 0 / 0 |
-| [kuri](https://github.com/dexpace/kuri) | Kotlin | URI/URL library (my primary target) | 7 / 4 |
-| [styleguide](https://github.com/dexpace/styleguide) | — | dexpace codestyle across languages | 0 / 0 |
-| [morphic-test-assets](https://github.com/dexpace/morphic-test-assets) | — | Assets for testing the morphic framework and CLI | 0 / 0 |
-| [.github](https://github.com/dexpace/.github) | — | Org profile | — |
+| Repo                                                                  | Language   | What it is                                                                                                                                           | Open issues / PRs       |
+| --------------------------------------------------------------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
+| [morphic](https://github.com/dexpace/morphic)                         | Go         | A compiler that generates idiomatic SDKs and docs from any API spec — OpenAPI, Smithy, TypeSpec, GraphQL. One IR, many targets.                      | 65 / 40                 |
+| [python-sdk](https://github.com/dexpace/python-sdk)                   | Python     | Typed, transport-agnostic toolkit for Python HTTP client libraries — immutable request/response models, staged policy pipelines, auth, observability | 58 (15 help-wanted) / 8 |
+| [java-sdk](https://github.com/dexpace/java-sdk)                       | Kotlin     | Core components and tools for building and maintaining Java SDK libraries                                                                            | 41 / 13                 |
+| [nodejs-sdk](https://github.com/dexpace/nodejs-sdk)                   | JavaScript | NodeJS SDK platform                                                                                                                                  | 24 / 1                  |
+| [dotnet-sdk](https://github.com/dexpace/dotnet-sdk)                   | C#         | .NET SDK toolkit                                                                                                                                     | 4 / 0                   |
+| [go-sdk](https://github.com/dexpace/go-sdk)                           | Go         | Go SDK toolkit                                                                                                                                       | 0 / 0                   |
+| [kuri](https://github.com/dexpace/kuri)                               | Kotlin     | URI/URL library (my primary target)                                                                                                                  | 7 / 4                   |
+| [styleguide](https://github.com/dexpace/styleguide)                   | —          | dexpace codestyle across languages                                                                                                                   | 0 / 0                   |
+| [morphic-test-assets](https://github.com/dexpace/morphic-test-assets) | —          | Assets for testing the morphic framework and CLI                                                                                                     | 0 / 0                   |
+| [.github](https://github.com/dexpace/.github)                         | —          | Org profile                                                                                                                                          | —                       |
 
 The shape of the org is coherent: `morphic` is the code generator, the `*-sdk` repos are the hand-built per-language runtimes it generates against, `styleguide` is the shared convention layer, and `kuri` is a foundational library the JVM/Kotlin side depends on for correct URL handling.
 
@@ -110,7 +110,7 @@ opened 7 Jul 2026
 
 **What I'd learn.** Java reflection versus Kotlin reflection and where their views of a class diverge; designing to an existing interface seam; JVM records and bean conventions; optional-dependency strategies; and the coverage/API-snapshot discipline that a non-trivial change triggers.
 
-## 5. Risks and how I adapt
+## 4. Risks and how I adapt
 
 **The maintainer is slow or unavailable.** Omar has a full-time SDE II role; review latency is the default risk, not the exception. *Adaptation:* never have only one thing in flight. While a PR waits, I move to the next scoped item — the roadmap is deliberately built from independent slices (`codegen`, then `idnaref`, then `#42`) so nothing blocks on the previous merge. If a PR sits more than two weeks, I ping once in-thread with a short status summary, then keep working. Because he's my brother I could escalate out-of-band, but I'll reserve that for genuine blockers so it stays a real signal.
 
