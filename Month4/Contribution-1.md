@@ -5,7 +5,7 @@
 **Pull request:** [#2337 — `plumbing: format/packfile, Break cyclic delta chains instead of recursing`](https://github.com/go-git/go-git/pull/2337)
 **Date opened:** 23 Aug 2026
 **Status at time of writing:** open, CI queued pending maintainer approval (first-time contributor)
-**Local working copy:** `~/Desktop/MyStuff/Programming/JOSA/oss-contrib/go-git`
+>[!note] note:  The maintainer merged the PR one day after it was opened
 
 > Everything under "Observed" was read directly off GitHub or the repository on **23 Aug 2026**. Anything marked *My read* is my own judgment, not a claim by the project.
 
