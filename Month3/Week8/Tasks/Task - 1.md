@@ -1,5 +1,8 @@
 # Journal — Profile & Fix: boltons IndexedSet
 
+>[!note] The PR was merged on 7 September 2026
+>, The PR Closed 2 issues : [#439](https://github.com/mahmoud/boltons/issues/439), [#470](https://github.com/mahmoud/boltons/pull/470)
+
 ## Goal
 
 Profile a real workflow in a project I use, find a >50ms bottleneck with a
