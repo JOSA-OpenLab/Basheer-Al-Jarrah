@@ -3,6 +3,7 @@
 **Repo:** [more-itertools/more-itertools](https://github.com/more-itertools/more-itertools) · **Issue:** [#1017](https://github.com/more-itertools/more-itertools/issues/1017) · **PR:** [#1265](https://github.com/more-itertools/more-itertools/pull/1265)
 **Opened:** 8 Sep 2026 · **Status:** open, mergeable, CI waiting on maintainer approval (first PR to this repo)
 
+>[!note] The PR was closed by the maintainer based on his design preferences. I still believe the changes are valuable and worth considering for a future merge, though.
 ---
 
 ## What I actually shipped
