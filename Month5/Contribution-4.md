@@ -1,13 +1,13 @@
 # Contribution 4 — celery
 
 **Repo:** [celery/celery](https://github.com/celery/celery) · **PR:** [#10840](https://github.com/celery/celery/pull/10840)
-**Opened:** 11 Oct 2026 · **Status:** open, waiting on the first-time-contributor CI gate
+**Opened:** 11 Oct 2026 · **Merged:** 13 Oct 2026 by `auvipy` (`e39d0313`) — 11 commits, +256 / −3
 
 ---
 
 ## What I did
 
-Made `chain()` construction linear instead of quadratic. Building a chain of 800 tasks went from 631 ms to 3.7 ms.
+Made `chain()` construction linear instead of quadratic. Building a chain of 800 tasks went from 655 ms to 5.6 ms.
 
 ## Why
 
@@ -41,12 +41,22 @@ Patch applied, then reverted with `git checkout HEAD` on the same checkout.
 
 | tasks | before | after | |
 | --- | ---: | ---: | --- |
-| 100 | 10.60 ms | 0.53 ms | 20× |
-| 200 | 39.95 ms | 0.96 ms | 42× |
-| 400 | 154.41 ms | 1.88 ms | 82× |
-| 800 | 631.38 ms | 3.72 ms | 170× |
+| 100 | 10.65 ms | 0.75 ms | 14× |
+| 400 | 163.19 ms | 2.79 ms | 58× |
+| 800 | 655.20 ms | 5.62 ms | 117× |
+| 1600 | — | 11.36 ms | |
 
-Before quadruples per doubling, after doubles. 606 tests pass across canvas, chord, result, tasks and builtins.
+Before quadruples per doubling, after doubles. Final figures, after the review changes below.
+
+## Review
+
+Four rounds, three of which changed the code.
+
+- **MehrazRumman — a dropped task.** When a nested chain began with a group, the steps after it were silently discarded: `chain(_chain(group(a, b), add.s(10)), add.s(20))` lost `add(10)`. My fold returned early instead of composing the rest onto the new result, which is what `_chain.__or__` does. Fixed, plus three regression tests that fail without the fix.
+- **MehrazRumman — a behaviour change.** `|` never clones its right-hand side, so the last task of a chain is the caller's own object. My version cloned it, which would break `c.link(...)` after the fact. Threaded a flag through so the final step is passed on uncloned; no behaviour change left in the PR.
+- **auvipy — coverage.** Of the nine uncovered lines, five were dead code I had copied over from `__or__` (a chord-collapse rule that cannot trigger in a single pass — 0 hits in 20,000 canvases, and removing it changed nothing in the differential). The other four were real gaps, now covered.
+- **auvipy — integration tests.** Added two to `t/integration/test_canvas.py` and ran them against a redis broker. Declined to add a smoke test I could not execute locally and said so.
+- **GangEunzzang — shared errbacks.** `unchain_tasks()` hands the same errback object to every task; the old fold separated those copies by re-cloning each step, mine left them shared, so a per-signature stamping visitor wrote two steps' stamps into one errback. Cloning the non-final steps at the end fixed it. Over 3,000 stamped canvases: main 154, mine 192 before and 154 after — parity, not just close.
 
 ## What I got wrong
 
@@ -61,4 +71,4 @@ The through-line: my own 24-shape differential test passed happily while the imp
 
 ## Scope
 
-Construction cost only. The serialized message growth that's the other half of #9202 is being handled separately, so the PR says `Refs` rather than `Fixes`.
+Construction cost only. The serialized message growth that's the other half of #9202 was handled separately (#10743, #10824), so the PR says `Refs` rather than `Fixes` and the issue stays open.
