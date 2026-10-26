@@ -1,7 +1,7 @@
 # Contribution 3 — more-itertools
 
 **Repo:** [more-itertools/more-itertools](https://github.com/more-itertools/more-itertools) · **Issue:** [#1017](https://github.com/more-itertools/more-itertools/issues/1017) · **PR:** [#1265](https://github.com/more-itertools/more-itertools/pull/1265)
-**Opened:** 8 Sep 2026 · **Status:** open, mergeable, CI waiting on maintainer approval (first PR to this repo)
+**Opened:** 8 Sep 2026 · **Closed:** 10 Sep 2026 by `bbayles`, unmerged — declined on design grounds, not folded
 
 >[!note] The PR was closed by the maintainer based on his design preferences. I still believe the changes are valuable and worth considering for a future merge, though.
 ---
@@ -64,3 +64,17 @@ I posted the benchmark table on the issue first and then opened the PR referenci
 CI is queued pending maintainer approval, which is normal for a first PR to this repo — two other open PRs are sitting in exactly the same state. Once it runs I need to confirm the whole matrix is green, PyPy included. If PyPy regresses, the honest options are a version-conditional dispatch or pulling the change; I wouldn't argue to keep it on CPython numbers alone.
 
 If the maintainers want the cutover looked at too, that's a follow-up in #1017.
+
+## Outcome
+
+**Closed unmerged** on 10 Sep 2026 by `bbayles`. He first closed it accidentally on 8 Sep (*"Apologies; I mixed this PR up with another. Will review soon!"*), reopened, then closed it deliberately two days later:
+
+> I think Raymond's comment here remains accurate: [#1017 (comment)](https://github.com/more-itertools/more-itertools/issues/1017#issuecomment-3002043652) So we'll pass on this PR. Thanks for the contribution
+
+The reasoning is Raymond Hettinger's, from the issue, and it is not about the measurements — he accepts that the list variant is faster. He rejects *why* it is faster:
+
+> ISTM the sliding window list variant relies on a fragile implementation detail that could easily change as the interpreter shifts to no-gil logic. Personally, I would stick with the deque variant despite the timings. A deque with maxlen is specifically designed for the sliding window use case. […] The *only* slow part of `_sliding_window_deque` is the deque-to-tuple conversion: `yield tuple(window)`. The deque itself is optimal. It only lacks a `PyDeque_AsTuple` short-cut.
+
+So the win came from `PyList_AsTuple` bypassing the iterator protocol, which `PyDeque_AsTuple` has no equivalent for — a CPython implementation detail rather than an algorithmic improvement. The maintainers would rather carry the slower-but-principled `deque` than a faster version resting on something free-threading could invalidate.
+
+**Nothing of mine shipped**, and `sliding_window` still uses the deque. The decline predates my PR: Raymond's comment is from June 2025, on the issue I was working from. The lesson isn't about the benchmark — it's that a performance PR against a tracked issue needs the issue's *existing* discussion read to the end first. Had I read that comment before writing the patch, I'd have known the answer was already no, and the right move would have been arguing the point in the issue rather than submitting code.

@@ -5,6 +5,7 @@
 **Pull request:** [#2337 — `plumbing: format/packfile, Break cyclic delta chains instead of recursing`](https://github.com/go-git/go-git/pull/2337)
 **Date opened:** 23 Aug 2026
 **Status at time of writing:** open, CI queued pending maintainer approval (first-time contributor)
+**Status (verified 26 Oct 2026):** **merged 24 Aug 2026** by `pjbgf` — merge commit `e37764fd3`, 1 commit, 2 files, +204 / −3. Issue [#2249](https://github.com/go-git/go-git/issues/2249) closed by `pjbgf` the same day. Merge still an ancestor of `main`; nothing reverted.
 >[!note] note:  The maintainer merged the PR one day after it was opened
 
 > Everything under "Observed" was read directly off GitHub or the repository on **23 Aug 2026**. Anything marked *My read* is my own judgment, not a claim by the project.

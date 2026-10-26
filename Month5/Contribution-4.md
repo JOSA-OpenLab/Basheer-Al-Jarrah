@@ -71,4 +71,6 @@ The through-line: my own 24-shape differential test passed happily while the imp
 
 ## Scope
 
-Construction cost only. The serialized message growth that's the other half of #9202 was handled separately (#10743, #10824), so the PR says `Refs` rather than `Fixes` and the issue stays open.
+Construction cost only. The serialized message growth that's the other half of [#9202](https://github.com/celery/celery/issues/9202) was handled separately (#10743, #10824), so the PR says `Refs` rather than `Fixes`.
+
+**Update (26 Oct 2026):** #9202 is now closed — `auvipy` closed it on 13 Oct, about six hours before merging this PR, so the write-up's "the issue stays open" no longer holds. The merge commit `e39d0313` is still an ancestor of `main` (65 commits back, nothing reverted) and the single-pass `__new__` is intact in `celery/canvas.py`. Others have since kept working the same area: `#10873` fixed exponential message growth in chains of groups, and `#10829`, `#10857`, `#10864` and a 26 Oct chord-options fix all touched `canvas.py` without disturbing this change.

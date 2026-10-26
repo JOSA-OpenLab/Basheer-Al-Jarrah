@@ -47,6 +47,10 @@ I was careful to bound this: the equivalence relies on `haves == nil`, which is 
 
 **Scope decision.** `ObjectsWithRef` is exported public API and becomes unused in-tree after this change. I left it untouched rather than removing it — removal is a breaking change requiring an RFC — and raised the leave/deprecate/remove question in the issue instead. The PR uses `Refs #2350` rather than `Fixes` so that question is not auto-closed when the perf fix merges.
 
+**Update (26 Oct 2026):** that tactic didn't hold. `pjbgf` closed [#2350](https://github.com/go-git/go-git/issues/2350) manually 78 minutes after merging the PR, with a one-line comment — *"Fixed as per #2351."* Avoiding `Fixes` prevented the automatic close but not the manual one, and the leave/deprecate/remove question was never answered. `ObjectsWithRef` is still exported in `plumbing/revlist/revlist.go` with no deprecation marker, now unused in-tree. If I want that decided, it needs its own issue framed as an API question rather than a trailing paragraph on a performance issue — a maintainer closing a perf issue is not going to adopt an API debate riding along inside it.
+
+The merge itself is intact: `9079000b` is still an ancestor of `main`, 88 commits back, nothing reverted.
+
 ---
 
 ## Measurements

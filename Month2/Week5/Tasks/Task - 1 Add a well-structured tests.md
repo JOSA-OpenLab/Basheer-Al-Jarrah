@@ -4,6 +4,7 @@
 **Repo:** boltons — https://github.com/mahmoud/boltons A widely-used pure-Python utility collection, actively maintained (latest release 26.0.0, June 2026).
 
 **PR:** https://github.com/mahmoud/boltons/pull/414
+**Status (verified 26 Oct 2026):** **closed unmerged** on 17 Jul 2026 by `mahmoud` — but the work shipped. He wrote: *"Consolidated a leaner version of these into #425. Appreciate the nudge on pathutils coverage, thanks!"* [#425](https://github.com/mahmoud/boltons/pull/425) merged 18 Jul (`e66cade3`). So: closed, not rejected — the tests landed in trimmed form under his commit rather than mine. This is the boltons pattern, and a bare `state: closed` would misread it as a rejection.
 
 **File added:** `tests/test_pathutils.py`
 

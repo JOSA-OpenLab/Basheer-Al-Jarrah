@@ -1,6 +1,10 @@
 
 **Target project:** [mahmoud/boltons](https://github.com/mahmoud/boltons) (~6.5k ⭐, Python utility library)
 **PR:** [#426 — chore(ci): pin GitHub Actions to commit SHAs](https://github.com/mahmoud/boltons/pull/426)
+**Status (verified 26 Oct 2026):** **closed unmerged** the same day it was opened (17 Jul 2026) by `mahmoud` — superseded by his own [#427](https://github.com/mahmoud/boltons/pull/427), which merged 17 Jul.
+> *"Thanks — superseded by #427, which pins to SHAs **and** upgrades to the latest majors (the old v4/v5 pins still carry the Node 20 deprecation)."*
+>
+> The fix landed and the Scorecard check improves; the diff that did it is his, not mine. Worth recording as the outcome I should have aimed for directly: I pinned the existing versions faithfully, and the versions themselves were the bigger problem. Pinning a deprecated action to a SHA pins the deprecation too.
 
 > [!abstract] Goal
 > Run OpenSSF Scorecard on an open-source project (not my own), identify the lowest-scoring check, and try to open a PR fixing it.

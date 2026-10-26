@@ -150,5 +150,7 @@ gh pr create --repo ossf/scorecard \
 - **Commit:** `956dc4c5`, DCO signed off with `-s`
 - **PR #5158**, title prefixed `:book:` per the CONTRIBUTING emoji table
 - Template filled: `Fixes: NONE`, `release-note: NONE`, tests checkbox N/A
-- **Status:** open
+- **Status:** open *(at time of writing)*
+- **Status (verified 26 Oct 2026):** still open after ~12 weeks, but drifted: labelled **`Stale`** by the bot on 29 Sep ("open for 10 days with no activity"), `mergeable` is now **`CONFLICTING`**, and `reviewDecision` is `REVIEW_REQUIRED`. No human has commented — the only two comments are from `dosubot[bot]` and `github-actions[bot]`. A 3-line docs fix needs a rebase before it can go anywhere.
+- **Decision (26 Oct 2026): abandoned.** Not rebasing. Twelve weeks with no human response, a bot-applied `Stale` label and now a conflicting diff, on a 3-line docs fix in a repo where nobody has engaged with it — the effort to revive it buys nothing worth having. Left open upstream rather than withdrawn; if a maintainer ever wants it, the branch is still there. Recorded here so the entry reads as a closed matter rather than something still pending.
 

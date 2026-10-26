@@ -1,7 +1,8 @@
 # Contribution 3 — marshmallow
 
 **Repo:** [marshmallow-code/marshmallow](https://github.com/marshmallow-code/marshmallow) · **PR:** [#3059](https://github.com/marshmallow-code/marshmallow/pull/3059)
-**Opened:** 28 Sep 2026 · **Status:** open, waiting on the first-time-contributor CI gate
+**Opened:** 28 Sep 2026 · **Status (verified 26 Oct 2026):** open, mergeable, **CI green** (3.10 and 3.14 pass, package build pass), awaiting review
+> The CI gate cleared — the original "waiting on the first-time-contributor CI gate" no longer applies. `deckar01` left a design comment on 28 Sep: constructing an `And` per field per validation does waste allocations, but he suggests breaking `And.__call__()` out into a utility rather than special-casing the empty-validator path. That's a larger refactor than this PR, and the thread is unresolved.
 
 ---
 
