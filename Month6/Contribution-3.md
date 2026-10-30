@@ -1,7 +1,7 @@
 # Contribution 3 — SQLGlot
 
 **Repo:** [tobymao/sqlglot](https://github.com/tobymao/sqlglot) · **PR:** [#8844](https://github.com/tobymao/sqlglot/pull/8844)
-**Opened:** 30 Oct 2026 · **Status:** open, mergeable, CI green (3.9–3.15 all pass), awaiting review — 1 commit, 2 files, +51 / −5
+**Opened:** 30 Oct 2026 · **Merged:** 30 Oct 2026 by `georgesittas` (`6f90b498`) — 1 commit, 2 files, +51 / −5
 
 ---
 
@@ -17,7 +17,7 @@ Make `diff()` output comparable. Anything snapshotting or asserting on an edit s
 
 ## Review
 
-None yet.
+Approved and merged as submitted, no changes requested — *"This seems fine, thanks for the PR"*. CI green across 3.9–3.15.
 
 ## Issues
 
@@ -25,4 +25,4 @@ None. Found while benchmarking [#8838](https://github.com/tobymao/sqlglot/pull/8
 
 ## Outcome
 
-Open and awaiting review, CI fully green.
+Merged into `main` the same day it was opened, unmodified.
