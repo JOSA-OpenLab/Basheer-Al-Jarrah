@@ -1,8 +1,12 @@
 # Contribution 3 — marshmallow
 
 **Repo:** [marshmallow-code/marshmallow](https://github.com/marshmallow-code/marshmallow) · **PR:** [#3059](https://github.com/marshmallow-code/marshmallow/pull/3059)
-**Opened:** 28 Sep 2026 · **Status (verified 26 Oct 2026):** open, mergeable, **CI green** (3.10 and 3.14 pass, package build pass), awaiting review
-> The CI gate cleared — the original "waiting on the first-time-contributor CI gate" no longer applies. `deckar01` left a design comment on 28 Sep: constructing an `And` per field per validation does waste allocations, but he suggests breaking `And.__call__()` out into a utility rather than special-casing the empty-validator path. That's a larger refactor than this PR, and the thread is unresolved.
+**Opened:** 28 Sep 2026 · **Status (verified 8 Nov 2026):** open, mergeable, CI green, `BLOCKED` on review — replied to the maintainer, awaiting his call
+> `deckar01` left a design comment on 28 Sep: constructing an `And` per field per validation does waste allocations, but he suggests breaking `And.__call__()` out into a module-level utility rather than special-casing the empty-validator path, and linked his own commit `4d4e9fcb` doing it.
+>
+> **His approach is better than mine and supersedes it.** His numbers: both land −13% on CPython, but mine is −0% on PyPy against his −13%. The reason is that my guard only skips the `And` construction when `validators` is *empty*; for a field that has validators, `And.__init__` still runs `tuple(validators)` on every `_validate` call, and that copy is what PyPy cannot elide. Calling `_validate_all(value, self.validators)` removes it in both cases, so the empty case then needs no special-casing at all.
+>
+> Replied 8 Nov conceding that, and offered two things: the differential test from this PR (2178 combinations of field type × validator config × input, comparing exception type, `messages` and `kwargs`) is more useful against his refactor than mine, since his relocates the error-aggregation logic rather than just skipping it; and I checked that removing the `_validate_all` property is safe — it is referenced only at its definition and one call site, appears in no docs, though a changelog line is warranted since a subclass could have overridden it. Offered either to close this so he can land `4d4e9fcb`, or to rewrite this PR to his approach credited to him.
 
 ---
 
